@@ -1,0 +1,121 @@
+<div class="container">
+
+  <form #usersForm="ngForm" (ngSubmit)="getUserData(usersForm.value)">
+    <h2>Add user details</h2>
+    <label>First Name</label>
+    <input type="text" name="first_name" ngModel>
+
+    <label>Last Name</label>
+    <input type="text" name="last_name" ngModel>
+
+    <label>Email</label>
+    <input type="email" name="emailId" ngModel>
+
+    <label>Age</label>
+    <input type="number" name="age" ngModel>
+
+    <label>Gender</label>
+    <select name="gender" ngModel>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label>Mobile Number</label>
+    <input type="number" name="mobilenumber" ngModel>
+
+    <label>Adhar Number</label>
+    <input type="number" name="adhaar_no" ngModel>
+
+    <label>PAN Number</label>
+    <input type="number" name="pan_no" ngModel>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
+
+<div class="container-2">
+  
+  <div class="table">
+    <h2>Fetching data</h2>
+    <table class="user-table" border="1">
+     
+      <thead>
+        <tr *ngIf="users && users.length > 0">
+          <th>Id</th>
+          <th>createdAt</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>age</th>
+          <th>Gender</th>
+          <th>Mobile Number</th>
+          <th>Pan Number</th>
+          <th>Adhar Number</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.createdAt }}</td>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name}}</td>
+          <td>{{ user.emailId }}</td>
+          <td>{{ user.age }}</td>
+          <td>{{ user.gender }}</td>
+          <td>{{ user.mobilenumber }}</td>
+          <td>{{ user.pan_no }}</td>
+          <td>{{ user.adhaar_no }}</td>
+          <td><button (click)="onDelete(user.id)">Delete</button><br>
+            <button (click)="onEdit(user)">Edit</button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="container-edit">
+  <div *ngIf="editingUser" class="modal">
+    <div class="modal-content">
+  
+      <form (ngSubmit)="onUpdate()">
+        <h2>Edit User</h2>
+        <label>First Name</label>
+        <input type="text" [(ngModel)]="editingUser.first_name" name="first_name">
+  
+        <label>Last Name</label>
+        <input type="text" [(ngModel)]="editingUser.last_name" name="last_name">
+  
+        <label>Email</label>
+        <input type="email" [(ngModel)]="editingUser.emailId" name="emailId">
+  
+        <label>Age</label>
+        <input type="number" [(ngModel)]="editingUser.age" name="age">
+  
+        <label>Gender</label>
+        <select [(ngModel)]="editingUser.gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+  
+        <label>Mobile Number</label>
+        <input type="number" [(ngModel)]="editingUser.mobilenumber" name="mobilenumber">
+  
+        <label>Adhar Number</label>
+        <input type="number" [(ngModel)]="editingUser.adhaar_no" name="adhaar_no">
+  
+        <label>PAN Number</label>
+        <input type="number" [(ngModel)]="editingUser.pan_no" name="pan_no">
+  
+        <button type="submit">Update</button>
+        <button type="button" (click)="editingUser = null">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>

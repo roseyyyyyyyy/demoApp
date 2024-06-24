@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border:border-box;
+   
+}
+  .nav{
+    height: 40px;
+width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    padding-top: 10px;
+   
+  }
+  
+  nav ul {
+    list-style-type: none;
+   
+    
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 1.47em;
+  }
+  
+  nav ul li a:hover {
+    background-color: #555;
+    
+  }
+
+  /* mobile */
+  @media (min-width: 320px) and (max-width: 616px) {
+    .nav{
+        height: 40px;
+    width: 360px; 
+   
+      }
+      nav ul li a {
+      
+        font-weight: 500;
+        font-size: 0.97em;
+      }
+  }
+

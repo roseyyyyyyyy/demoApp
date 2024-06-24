@@ -1,0 +1,13 @@
+.container{
+    margin: 20px;
+    width: 40%;
+    height: 500px;
+    background-color:azure;
+}
+form{
+ padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
